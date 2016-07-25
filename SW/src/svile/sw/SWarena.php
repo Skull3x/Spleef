@@ -321,6 +321,10 @@ final class SWarena
         //START and STOP
         if ($this->GAME_STATE == 0 && $this->pg->configs['start.when.full'] && $this->slot <= count($this->players)) {
             $this->start();
+            foreach ($this->pg->getServer()->getLevelByName($this->world)->getPlayers() as $p) {
+                $p->getInventory()->setItem(1, 277,0,1));
+			    $p->getInventory()->setHotbarSlotIndex(1,1);
+            }
             return;
         }
         if ($this->GAME_STATE == 1 && 2 > count($this->players)) {
@@ -329,6 +333,10 @@ final class SWarena
         }
         if ($this->GAME_STATE == 0 && $this->time >= $this->countdown) {
             $this->start();
+            foreach ($this->pg->getServer()->getLevelByName($this->world)->getPlayers() as $p) {
+                $p->getInventory()->setItem(1, 277,0,1));
+			    $p->getInventory()->setHotbarSlotIndex(1,1);
+            }
             return;
         }
         if ($this->GAME_STATE == 1 && $this->time >= $this->maxtime) {
