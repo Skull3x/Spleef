@@ -554,17 +554,11 @@ class SWlistener implements Listener
     }
 
 
-    public function onBreak(BlockBreakEvent $ev)
-    {
-        foreach ($this->pg->arenas as $a) {
-            if ($t = $a->inArena($ev->getPlayer()->getName())) {
-                if ($t == 2)
-                    $ev->setCancelled();
-                if ($a->GAME_STATE == 0)
-                    $ev->setCancelled();
-                break;
-            }
-        }
+    public function onBreak(BlockBreakEvent $ev){
+        if($ev->getBlock()->getID() != 80){
+            $ev->getPlayer()->sendMessage("§cYou can't break this block!");
+            $ev->setCancelled();
+        }      
         if (!$ev->getPlayer()->isOp())
             return;
         $key = (($ev->getBlock()->getX() + 0) . ':' . ($ev->getBlock()->getY() + 0) . ':' . ($ev->getBlock()->getZ() + 0) . ':' . $ev->getPlayer()->getLevel()->getName());
@@ -581,17 +575,8 @@ class SWlistener implements Listener
     }
 
 
-    public function onPlace(BlockPlaceEvent $ev)
-    {
-        foreach ($this->pg->arenas as $a) {
-            if ($t = $a->inArena($ev->getPlayer()->getName())) {
-                if ($t == 2)
-                    $ev->setCancelled();
-                if ($a->GAME_STATE == 0)
-                    $ev->setCancelled();
-                break;
-            }
-        }
+    public function onPlace(BlockPlaceEvent $ev){
+        $ev->setCancelled();
     }
 
 
