@@ -441,9 +441,10 @@ class SWlistener implements Listener
     }
 
 
-    public function onDamage(EntityDamageEvent $ev)
-    {
-        $ev->setCancelled();
+    public function onDamage(EntityDamageEvent $ev){
+        if($event->getDamager() instanceof Player and $event->getEntity() instanceof Player){
+            $ev->setCancelled();
+        }
     }
 
 
