@@ -469,7 +469,6 @@ class SWlistener implements Listener
                     $ev->setCancelled();
                 if ($a->GAME_STATE == 0)
                     $ev->setCancelled();
-                break;
         }
         if (!$ev->getPlayer()->isOp())
             return;
