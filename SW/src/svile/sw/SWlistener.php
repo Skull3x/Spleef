@@ -464,11 +464,13 @@ class SWlistener implements Listener
             $ev->getPlayer()->sendMessage("§cYou can't break this block!");
             $ev->setCancelled();
         }
+        foreach ($this->pg->arenas as $a) {
         if ($t = $a->inArena($ev->getPlayer()->getName())) {
                 if ($t == 2)
                     $ev->setCancelled();
                 if ($a->GAME_STATE == 0)
                     $ev->setCancelled();
+        }
         }
         if (!$ev->getPlayer()->isOp())
             return;
