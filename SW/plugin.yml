@@ -7,5 +7,5 @@ api: [2.0.0]
 load: STARTUP
 
 commands:
- sw:
+ spleef:
   description: SkyWars main command
