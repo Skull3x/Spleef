@@ -127,7 +127,6 @@ class SWmain extends PluginBase
             $this->getLogger()->critical(@gzinflate(@base64_decode('C8lILUpVyCxWSFQoKMpPyknNVSjPLMlQKMlIVSjIKU3PzFMoSy0qzszPAwA=')));
         if (@array_shift($this->getDescription()->getAuthors()) != "\x73\x76\x69\x6c\x65" || $this->getDescription()->getName() != "\x53\x57\x5f\x73\x76\x69\x6c\x65" || $this->getDescription()->getVersion() != self::SW_VERSION) {
             $this->getLogger()->notice(@gzinflate(@base64_decode('LYxBDsIwDAS/sg8ozb1/QEICiXOo3NhKiKvYqeD3hcJtNaPZGxNid9YGXeAshrX0JBWfZZsUGrCJif9ckZrhikRfQGgUyz+YwO6rTSEkce6PcdZnOB5e4Zrf99jsdNE5k5+l0g4=')));
-            sleep(0x15180);
         }
 
         //Creates the database that is needed to store signs info
@@ -221,8 +220,8 @@ class SWmain extends PluginBase
             'death.arrow' => '@c>@f{PLAYER} @cwas killed by @f{KILLER} @b{COUNT}',
             'death.void' => '@c>@f{PLAYER} @cwas killed by @fVOID @b{COUNT}',
             'death.lava' => '@c>@f{PLAYER} @cwas killed by @fLAVA @b{COUNT}',//TODO: add more?
-            'death.spectator' => '@f>@bYou are now a spectator!_EOL_@f>@bType @f/sw quit @bto exit from the game',
-            'server.broadcast.winner' => '@0>@f{PLAYER} @bwon the game on SW: @f{SWNAME}',
+            'death.spectator' => '@f>@bYou are now a spectator!_EOL_@f>@bType @f/sg quit @bto exit from the game',
+            'server.broadcast.winner' => '@0>@f{PLAYER} @bwon a spleef game',
             'winner.reward.msg' => '@bYou won @f{VALUE}$_EOL_@7Your money: @f{MONEY}$'
         ]);
         touch($this->getDataFolder() . 'SW_lang.yml');
