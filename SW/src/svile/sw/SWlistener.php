@@ -249,6 +249,12 @@ class SWlistener implements Listener
                 return;
             }
         }
+     	$player = $ev->getPlayer();
+        if($event->getTo()->getFloorY() < 1){
+            $player = $event->getPlayer();
+            $name = $event->getPlayer()->getName();             	
+            $player->setHealth(0);
+        }
         //Checks if knockBack is enabled
         if ($this->pg->configs['sign.knockBack']) {
             foreach ($this->pg->signs as $key => $val) {
