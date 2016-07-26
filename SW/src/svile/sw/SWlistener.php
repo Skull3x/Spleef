@@ -250,9 +250,8 @@ class SWlistener implements Listener
             }
         }
      	$player = $ev->getPlayer();
-        if($event->getTo()->getFloorY() < 1){
-            $player = $event->getPlayer();
-            $name = $event->getPlayer()->getName();             	
+        if($ev->getTo()->getFloorY() < 1){
+            $player = $ev->getPlayer();
             $player->setHealth(0);
         }
         //Checks if knockBack is enabled
