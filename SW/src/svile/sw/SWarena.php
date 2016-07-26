@@ -322,7 +322,7 @@ final class SWarena
         if ($this->GAME_STATE == 0 && $this->pg->configs['start.when.full'] && $this->slot <= count($this->players)) {
             $this->start();
             foreach ($this->pg->getServer()->getLevelByName($this->world)->getPlayers() as $p) {
-                $p->getInventory()->setItem(1, Item::get(277),0,1);
+                $p->getInventory()->setItem($sender->getInventory()->firstEmpty(), Item::get(277),0,1);
 		$p->sendMessage("§6Break a stone block to get the shovel");
             }
             return;
@@ -334,9 +334,8 @@ final class SWarena
         if ($this->GAME_STATE == 0 && $this->time >= $this->countdown) {
             $this->start();
             foreach ($this->pg->getServer()->getLevelByName($this->world)->getPlayers() as $p) {
-                $p->getInventory()->setItem(1, Item::get(277),0,1);
-		$p->getInventory()->setHotbarSlotIndex(1,1);
-		$p->sendMessage("§6Check your Inventory to find the shovel");
+                $p->getInventory()->setItem($sender->getInventory()->firstEmpty(), Item::get(277),0,1);
+		$p->sendMessage("§6Break a stone block to get the shovel");
             }
             return;
         }
