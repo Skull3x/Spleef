@@ -323,7 +323,7 @@ final class SWarena
             $this->start();
             foreach ($this->pg->getServer()->getLevelByName($this->world)->getPlayers() as $p) {
                 $p->getInventory()->setItem($p->getInventory()->firstEmpty(), Item::get(277),0,1);
-		$p->sendMessage("§6Break a stone block to get the shovel and than check your inventory");
+		$p->sendMessage("§6Break a stone block to get the shovel and then check your inventory");
             }
             return;
         }
@@ -335,7 +335,7 @@ final class SWarena
             $this->start();
             foreach ($this->pg->getServer()->getLevelByName($this->world)->getPlayers() as $p) {
                 $p->getInventory()->setItem($p->getInventory()->firstEmpty(), Item::get(277),0,1);
-		$p->sendMessage("§6Break a stone block to get the shovel and than check your inventory");
+		$p->sendMessage("§6Break a stone block to get the shovel and then check your inventory");
             }
             return;
         }
