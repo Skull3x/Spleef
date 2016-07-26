@@ -249,11 +249,6 @@ class SWlistener implements Listener
                 return;
             }
         }
-     	$player = $ev->getPlayer();
-        if($ev->getTo()->getFloorY() < 1){
-            $player = $ev->getPlayer();
-            $player->setHealth(0);
-        }
         //Checks if knockBack is enabled
         if ($this->pg->configs['sign.knockBack']) {
             foreach ($this->pg->signs as $key => $val) {
@@ -444,15 +439,6 @@ class SWlistener implements Listener
             }
         }
     }
-
-
-    public function onDamage(EntityDamageEvent $ev){
-        if($ev->getEntity() instanceof Player){
-            $ev->setCancelled();
-        }
-    }
-
-
     public function onRespawn(PlayerRespawnEvent $ev)
     {
         if ($this->pg->configs['always.spawn.in.defaultLevel'])
