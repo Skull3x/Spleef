@@ -323,8 +323,7 @@ final class SWarena
             $this->start();
             foreach ($this->pg->getServer()->getLevelByName($this->world)->getPlayers() as $p) {
                 $p->getInventory()->setItem(1, Item::get(277),0,1);
-		$p->getInventory()->setHotbarSlotIndex(1,1);
-		$p->sendMessage("§6Check your Inventory to find the shovel");
+		$p->sendMessage("§6Break a stone block to get the shovel");
             }
             return;
         }
